@@ -1,31 +1,539 @@
 
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/src/fonts/helvetica/helvetica_bold.otf) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/src/fonts/helvetica/helvetica_regular.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url(/src/fonts/helvetica/helvetica_oblique.otf) format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Светлая тема - СИНЕ-ЗЕЛЕНАЯ ГАММА */
 .App.light {
-  background: #f5f5f5;
-  color: #111;
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+    color: #004d40;
+    min-height: 100vh;
 }
 
-
+/* Темная тема */
 .App.dark {
-  background: #121212;
-  color: #f5f5f5;
+    background: linear-gradient(135deg, #1a1b1e 0%, #2d2f34 100%);
+    color: #ffffff;
+    min-height: 100vh;
 }
 
-.note-container{
-  display: flex;
-  margin-top: 20px;
-      border: 1px solid grey;
+/* Кнопка переключения темы */
+.changeTheme{
+    background: linear-gradient(135deg, #00796b 0%, #004d40 100%);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.font-p{
-  flex:3;
+.App.light.changeTheme{
+    background: #00796b;
+    color: white;
 }
 
-.note-flex{
-  flex:1;
+.App.dark .changeTheme{
+    background: #ffffff;
+    color: #1a1b1e;
 }
 
-.size-flex{
-  display: flex;
-  align-items: center;
-  gap:10px;
+.changeTheme:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
+.changeTheme:active {
+    transform: translateY(0);
+}
+
+/* ========== СТИЛИЗАЦИЯ ФОРМЫ ========== */
+
+/* Контейнер формы */
+form {
+  font-family: "Helvetica";
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.App.light form {
+    background: #ffffff;
+    border: 1px solid #b2dfdb;
+}
+
+.App.dark form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Заголовок формы */
+form h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.App.light form h2 {
+    color: #00695c;
+}
+
+.App.dark form h2 {
+    color: #ffffff;
+}
+
+/* Поле ввода */
+form input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.App.light form input {
+    background: #f0f7f6;
+    border: 2px solid #b2dfdb;
+    color: #004d40;
+}
+
+.App.dark form input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.App.light form input:focus {
+    border-color: #00796b;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.1);
+}
+
+.App.dark form input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.App.light form input::placeholder {
+    color: #4db6ac;
+    opacity: 0.7;
+}
+
+.App.dark form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+textarea{
+    padding: 10px;
+  font-family: "Helvetica";
+}
+
+
+
+/* Кнопка отправки */
+form button {
+  font-family: "Helvetica";
+    width: 300px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+  @media screen and (max-width: 575px) {
+ form button {
+   width:100%; }
+ }
+
+.App.light form button {
+    background: linear-gradient(135deg, #00796b 0%, #004d40 100%);
+    color: white;
+}
+
+.App.dark form button {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    color: #1a1b1e;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+form button:active {
+    transform: translateY(0);
+}
+
+/* Эффект пульсации при клике */
+form button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+form button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Контейнер для заметок */
+.note-container {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.App.light .note-container {
+    background: #ffffff;
+    border: 1px solid #b2dfdb;
+}
+
+.App.dark .note-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Текст заметки */
+.font-p {
+    flex: 3;
+    padding: 30px;
+    margin: 0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    word-break: break-word;
+    min-height: 150px;
+}
+
+.App.light .font-p {
+    background: #f5fbfa;
+}
+
+.App.dark .font-p {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Панель управления */
+.note-flex {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-left: 1px solid;
+}
+
+.App.light .note-flex {
+    border-left-color: #b2dfdb;
+}
+
+.App.dark .note-flex {
+    border-left-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Группы элементов управления */
+.size-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Кнопки управления */
+.size-flex button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App.light .size-flex button {
+    background: #b2dfdb;
+    color: #004d40;
+}
+
+.App.dark .size-flex button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.size-flex button:hover {
+    transform: scale(1.05);
+}
+
+.App.light .size-flex button:hover {
+    background: #00796b;
+    color: white;
+}
+
+.App.dark .size-flex button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Отображение текущего размера */
+.actual-font {
+    min-width: 50px;
+    text-align: center;
+    font-weight: 600;
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+.App.light .actual-font {
+    background: #b2dfdb;
+    color: #004d40;
+}
+
+.App.dark .actual-font {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Текст меток */
+.note-p {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.App.light .note-p {
+    color: #00695c;
+}
+
+.App.dark .note-p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Поля выбора цвета */
+.size-flex input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    padding: 2px;
+}
+
+.App.light .size-flex input[type="color"] {
+    border: 1px solid #b2dfdb;
+}
+
+.App.dark .size-flex input[type="color"] {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Кнопка жирного текста */
+.icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.App.light .note-flex > div:last-child button {
+    background: #b2dfdb;
+    color: #004d40;
+}
+
+.App.dark .note-flex > div:last-child button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.App.light .icon:hover {
+    background: #00796b;
+    color: white;
+}
+
+.App.dark .note-flex > div:last-child button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .note-container {
+        flex-direction: column;
+    }
+    
+    .note-flex {
+        border-left: none;
+        border-top: 1px solid;
+    }
+    
+    .App.light .note-flex {
+        border-top-color: #b2dfdb;
+    }
+    
+    .App.dark .note-flex {
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .size-flex {
+        justify-content: center;
+    }
+    
+    .container {
+        padding: 15px;
+        text-align: center;
+    }
+    
+    form {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    
+    form h2 {
+        font-size: 20px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Дополнительные эффекты для формы */
+form {
+    animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icon-flex{
+    display: flex;
+    gap:20px;
+    justify-content: left;
+}
+
+  @media screen and (max-width: 768px) {
+ .icon-flex{
+
+    justify-content: center;
+}
+ }
+
+
+ select{
+    font-family:'Helvetica';
+ }
