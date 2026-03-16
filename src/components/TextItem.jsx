@@ -89,13 +89,13 @@ const TextItem = ({ el }) => {
 
         <div className="icon-flex">
           <button className="icon" onClick={changeFontWeight}>
-            <img src="/images/bold-solid-full.svg" alt="bold-icon"></img>
+            <img src={process.env.PUBLIC_URL + "/images/bold-solid-full.svg"} alt="bold-icon"></img>
           </button>
            <button className="icon" onClick={changeItalic}>
-            <img src="/images/italic-solid-full.svg" alt="italic-icon"></img>
+            <img src="./images/italic-solid-full.svg" alt="italic-icon"></img>
           </button>
            <button className="icon" onClick={makeUnderline}>
-            <img src="/images/underline-solid-full.svg" alt="underline-icon"></img>
+            <img src="./images/underline-solid-full.svg" alt="underline-icon"></img>
           </button>
         </div>
 

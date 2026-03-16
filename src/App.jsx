@@ -27,6 +27,7 @@ function App() {
     }
   }
 
+  // console.log(process.env.PUBLIC_URL)
   const [data, setData] = useState(['Остановись, мгновенье! Ты прекрасно.'])
   // const numbers = [1,56,78,4,1335]
   // localStorage.setItem('info', JSON.stringify(numbers)) // сначала указываем название, а потом - то что записываем, записать объект или массив 
@@ -37,6 +38,7 @@ function App() {
     <div className={'App ' + theme}>
     <div className="container">
       <button className="changeTheme" onClick={changeTheme}>{textBtn}</button>
+       <h1 className='title'>Текстовый редактор на React</h1>
        <Form data={data} setData={setData}/>
     </div>
 
