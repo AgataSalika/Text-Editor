@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Text-Editor/static/css/main.ac5b099c.css",
-    "main.js": "/Text-Editor/static/js/main.c6e1feb7.js",
+    "main.css": "/Text-Editor/static/css/main.d8aa1b8a.css",
+    "main.js": "/Text-Editor/static/js/main.f542b271.js",
     "static/media/helvetica_oblique.otf": "/Text-Editor/static/media/helvetica_oblique.a1823bb006b6c436c523.otf",
     "static/media/helvetica_bold.otf": "/Text-Editor/static/media/helvetica_bold.899889c95eb3c6b47ce3.otf",
     "static/media/helvetica_regular.otf": "/Text-Editor/static/media/helvetica_regular.da7db66db5a8e54a8308.otf",
     "index.html": "/Text-Editor/index.html",
-    "main.ac5b099c.css.map": "/Text-Editor/static/css/main.ac5b099c.css.map",
-    "main.c6e1feb7.js.map": "/Text-Editor/static/js/main.c6e1feb7.js.map"
+    "main.d8aa1b8a.css.map": "/Text-Editor/static/css/main.d8aa1b8a.css.map",
+    "main.f542b271.js.map": "/Text-Editor/static/js/main.f542b271.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac5b099c.css",
-    "static/js/main.c6e1feb7.js"
+    "static/css/main.d8aa1b8a.css",
+    "static/js/main.f542b271.js"
   ]
 }
